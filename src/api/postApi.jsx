@@ -6,6 +6,8 @@ const api = axios.create({
 
 // to get the current exchange rate 
 
-export const currencyConverter = () => {
-    api.get(`/pair/${fromCurrency}/${toCurrency}/${amount}`);
+export const currencyConverter = async (fromCurrency, toCurrency, amount) => {
+  const res = await api.get(`/pair/${fromCurrency}/${toCurrency}/${amount}`);
+  console.log(res);
+  
 };

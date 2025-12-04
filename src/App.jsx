@@ -1,9 +1,15 @@
 import React from 'react'
 
 const App = () => {
-  return <h1>Currency Converter!</h1>;
+  return (
+    <section className="currency-converter">
+      <div className="currency-div">
+        <h1>Currency Converter</h1>
+        <hr />
+
+      </div>
+    </section>
+  )
 };
 
 export default App;
-
-// https://v6.exchangerate-api.com/v6/c0e4651455bb1b1672349f0d
