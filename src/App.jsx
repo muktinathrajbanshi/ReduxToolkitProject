@@ -17,7 +17,11 @@ const App = () => {
           From:
           <select>
           {["USD", "EUR", "NPR", "GBP", "AUD"].map((currency) => {
-            return <option key={currency} value="USD">USD</option>;
+            return (
+              <option key={currency} value={currency}>
+            {currency}
+            </option>
+            );
           })}
           </select>
           </label>
