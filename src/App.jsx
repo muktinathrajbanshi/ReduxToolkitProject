@@ -25,6 +25,18 @@ const App = () => {
           })}
           </select>
           </label>
+          <label>
+          To:
+          <select>
+          {["NPR", "USD", "EUR", "GBP", "AUD"].map((currency) => {
+            return (
+              <option key={currency} value={currency}>
+            {currency}
+            </option>
+            );
+          })}
+          </select>
+          </label>
         </section>
       </div>
     </section>
