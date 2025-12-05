@@ -14,13 +14,18 @@ const App = () => {
      data: convertedAmount,
     isLoading, 
     error, 
+    refetch,
     } = useQuery({
     queryKey:["currency"],
     queryFn: () => currencyConverter(fromCurrency, toCurrency, amount),
     enabled: false,
   });
 
-  const handleCurrencyConverter = () => {};
+  const handleCurrencyConverter = () => {
+    if (amount > 0) {
+      refetch();
+    }
+  };
 
   return (
     <section className="currency-converter">

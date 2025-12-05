@@ -9,5 +9,5 @@ const api = axios.create({
 export const currencyConverter = async (fromCurrency, toCurrency, amount) => {
   const res = await api.get(`/pair/${fromCurrency}/${toCurrency}/${amount}`);
   console.log(res);
-  
+  return res.data.conversion_result;
 };
