@@ -79,6 +79,7 @@ const App = () => {
               {amount} {fromCurrency} = {convertedAmount.toFixed(2)} {toCurrency}
             </h2>
           )}
+          {error && <p>An error occurred: {error.message}</p>}
       </div>
     </section>
   )
