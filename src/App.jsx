@@ -14,13 +14,19 @@ const App = () => {
         <div>
           <label>
             Amount:
-            <input type="text" />
+            <input 
+            type="text" 
+            value={amount} onChange={(e) => setAmount(e.target.value)} 
+            />
           </label>
         </div>
         <section className="currency-selector">
           <label>
           From:
-          <select>
+          <select 
+          value={fromCurrency} 
+          onChange={(e) => setFromCurrency(e.target.value)}
+          >
           {["USD", "EUR", "NPR", "GBP", "AUD"].map((currency) => {
             return (
               <option key={currency} value={currency}>
@@ -32,7 +38,10 @@ const App = () => {
           </label>
           <label>
           To:
-          <select>
+          <select
+          value={toCurrency}
+          onChange={(e) => setToCurrency(e.target.value)}
+          >
           {["NPR", "USD", "EUR", "GBP", "AUD"].map((currency) => {
             return (
               <option key={currency} value={currency}>
