@@ -10,9 +10,14 @@ const App = () => {
 
 
   // to fetch the data 
-  useQuery({
+  const {
+     data: convertedAmount,
+    isLoading, 
+    error, 
+    } = useQuery({
     queryKey:["currency"],
     queryFn: () => currencyConverter(fromCurrency, toCurrency, amount),
+    enabled: false,
   });
 
   const handleCurrencyConverter = () => {};
@@ -66,6 +71,14 @@ const App = () => {
         <button disabled={isLoading || amount <= 0} onClick={handleCurrencyConverter}>
         {isLoading ? "converting.." : "convert"}
         </button>
+
+        <hr />
+        {
+          convertedAmount && (
+            <h2>
+              {amount} {fromCurrency} = {convertedAmount.toFixed(2)} {toCurrency}
+            </h2>
+          )}
       </div>
     </section>
   )
