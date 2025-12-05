@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useQuery } from "@tanstack/react-query";
+import { currencyConverter } from './api/postApi';
 
 const App = () => {
 
   const [amount, setAmount] = useState(0);
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("NPR");
+
+
+  // to fetch the data 
+  useQuery({
+    queryKey:["currency"],
+    queryFn: () => currencyConverter(fromCurrency, toCurrency, amount),
+  });
+
+  const handleCurrencyConverter = () => {};
 
   return (
     <section className="currency-converter">
@@ -52,7 +63,9 @@ const App = () => {
           </select>
           </label>
         </section>
-        <button disabled={isLoading || amount <= 0}>{isLoading ? "converting.." : "convert"}</button>
+        <button disabled={isLoading || amount <= 0} onClick={handleCurrencyConverter}>
+        {isLoading ? "converting.." : "convert"}
+        </button>
       </div>
     </section>
   )
